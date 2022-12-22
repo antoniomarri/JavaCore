@@ -22,7 +22,6 @@ public class AccuweatherModel implements WeatherModel {
     private static final String AUTOCOMPLETE = "autocomplete";
 
     private static final OkHttpClient okHttpClient = new OkHttpClient();
-    private static final ObjectMapper objectMapper = new ObjectMapper();
 
 
     public void getWeather(String selectedCity, Period period) throws IOException {
@@ -49,5 +48,11 @@ public class AccuweatherModel implements WeatherModel {
                 break;
 
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        AccuweatherModel accuweatherModel = new AccuweatherModel();
+        accuweatherModel.getWeather("Moscow", Period.FIVE_DAYS);
     }
 }
